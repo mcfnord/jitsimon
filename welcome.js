@@ -25,9 +25,9 @@ var v = http.get(options, function(res) {
 	 if(url.includes("https://meet.jit.si/"))
  	{
 		if(0 < url.indexOf('\"'))
-		 	url.slice(0,url.indexOf('\"'));
+		 	url = url.slice(0,url.indexOf('\"'));
 		if(0 < url.indexOf(">"))
-			url.slice(0,url.indexOf(">"));
+			url = url.slice(0,url.indexOf(">"));
 		
 		console.log(process.argv[2] + "," + url);
  	}
