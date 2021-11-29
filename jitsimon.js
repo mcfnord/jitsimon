@@ -2,9 +2,7 @@ const puppeteer = require("puppeteer");
 
 (async () => {
 
-jamjits = '[{"jam_ip" : "35.0.0.1:454545", "jit_url" : "https://meet.jit.si/CKsJamulusMucMusic"}, \
-{"jam_ip" : "35.0.0.1:454545", "jit_url" : "https://meet.jit.si/CKsJamulusMucMusic"} \
-]' ;
+jamjits = '[{"jam_ip" : ' + process.argv[2] + '"jit_url" : ' + process.argv[3] + '}]' ;
 var jjs = JSON.parse(jamjits);
 var probed_calls = [] ;
 for (const jj of jjs) {
