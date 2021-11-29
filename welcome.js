@@ -23,7 +23,14 @@ var v = http.get(options, function(res) {
  {
 	 var url = array[i][0];
 	 if(url.includes("https://meet.jit.si/"))
-		 console.log(process.argv[2] + "," + url);
+ 	{
+		if(0 < str.indexOf("\""))
+		 	url.slice(0,str.indexOf("\""));
+		if(0 < str.indexOf(">"))
+			url.slice(0,str.indexOf(">"));
+		
+		console.log(process.argv[2] + "," + url);
+ 	}
  }
 
   });
