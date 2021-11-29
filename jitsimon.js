@@ -2,14 +2,14 @@ const puppeteer = require("puppeteer");
 
 (async () => {
 
-jamjits = '[{"jam_ip" : ' + process.argv[2] + '"jit_url" : ' + process.argv[3] + '}]' ;
+jamjits = '[{"jam_ip" : "' + process.argv[2] + '", "jit_url" : "' + process.argv[3] + '"}]' ;
 var jjs = JSON.parse(jamjits);
 var probed_calls = [] ;
 for (const jj of jjs) {
   const browser = await puppeteer.launch({
-    args: [ '--use-fake-ui-for-media-stream' ]
-    // , executablePath: '/usr/bin/chromium-browser'
-  })
+    executablePath: "/usr/bin/chromium-browser",
+    args: [ "--use-fake-ui-for-media-stream" ]
+  });
   const page = await browser.newPage();
   await page.goto(jj.jit_url);
   await page.waitForTimeout(3000);
