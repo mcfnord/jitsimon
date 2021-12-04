@@ -40,16 +40,18 @@ for (const jj of jjs) {
   page.click(joinElement);
   console.log("Clicked 1.");
   await page.waitForTimeout(1000);
-  var element = await page.$('[aria-label="Toggle tile view"]');
+  console.log("Clicked 1.5");
+  var page2 = browser.pages()[0];
+  var element = await page2.$('[aria-label="Toggle tile view"]');
   console.log("Clicked 2.");
-  await page.waitForTimeout(2000);
+  await page2.waitForTimeout(2000);
   await element.click();
-  await page.waitForTimeout(1000);
-  let targetzone = await page.$$('.videocontainer') ;
+  await page2.waitForTimeout(1000);
+  let targetzone = await page2.$$('.videocontainer') ;
   let num_here = targetzone.length - 2;
-  await page.waitForTimeout(1000);
-  await page.click('.hangup-button');
-  await page.waitForTimeout(5000);
+  await page2.waitForTimeout(1000);
+  await page2.click('.hangup-button');
+  await page2.waitForTimeout(5000);
   browser.close();
   probed_calls.push( { "ip" : jj.jam_ip, "url" : jj.jit_url, "actives" : num_here } );
 }
